@@ -1,5 +1,26 @@
-let todos = ["Study JS", "Practice Loops", "Build Project"];
+function addTask() {
+    let input = document.getElementById("taskInput");
+    let task = input.value;
 
-for (let i = 0; i < todos.length; i++) {
-    console.log(todos[i]);
+    if (task === "") {
+        alert("Please enter a task");
+        return;
+    }
+
+    let li = document.createElement("li");
+    li.textContent = task;
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.className = "delete-btn";
+
+    deleteBtn.onclick = function () {
+        li.remove();
+    };
+
+    li.appendChild(deleteBtn);
+
+    document.getElementById("taskList").appendChild(li);
+
+    input.value = "";
 }

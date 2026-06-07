@@ -1,9 +1,17 @@
-function showTime() {
-    let date = new Date();
+let display = document.getElementById("display");
 
-    let time = date.toLocaleTimeString();
-
-    document.getElementById("clock").innerHTML = time;
+function appendValue(value) {
+    display.value += value;
 }
 
-setInterval(showTime, 1000);
+function clearDisplay() {
+    display.value = "";
+}
+
+function calculate() {
+    try {
+        display.value = eval(display.value);
+    } catch {
+        display.value = "Error";
+    }
+}
